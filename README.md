@@ -2,15 +2,15 @@
 
 ## steps to boot riscv-linux on fpga
 
-### 1. generate the verilog file:
+### 1. Generate the verilog file:
       make -f Makefile.u500vc707devkit verilog
 note: before generating the file, we need to modify the scala configuration file first.
 
 
-### 2. modify the verilog file
+### 2. Modify the verilog file
 
 
-### 3. generate the mcs file:
+### 3. Generate the mcs file:
 here's the variable we might need to modify:
 #### 1) the VSRCS varible which points to the verilog file path in the makefile.
 #### 2) in those following vivado tcl command in common.mk file, we might need to modify varable MODEL(U500VC707DevKitFPGAChip) and variable BOARD(vc707) directly. But I'm not so sure since I am not very familiar with the vivado tcl command. Then, we will get the right bitstream.
@@ -46,3 +46,16 @@ here's the variable we might need to modify:
 #### 7. Select RS Pins = 25:24
 #### 8. Select OK
 Programming will take approximately five minutes.
+### 5. Prepare a complete SD card image :
+The Freedom U500 Software Development Kit provides everything required to compile and cus-
+tomize this SD Card image - GCC 6.1.0 cross compilation toolchain, Linux 4.6.2 kernel and build-
+root managed root filesystem.
+To clone the Freedom U500 SDK git repository :
+
+    git clone --recursive https://github.com/sifive/freedom-u-sdk.git
+To prepare a complete SD card image :
+
+    cd freedom-u-sdk; make
+To load the compiled image to the SD card :
+
+    dd if=work/bbl.bin of=/dev/your-sd-card bs=1M
