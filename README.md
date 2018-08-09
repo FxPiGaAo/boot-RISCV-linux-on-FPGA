@@ -55,6 +55,14 @@ root managed root filesystem.
 To clone the Freedom U500 SDK git repository :
 
     git clone --recursive https://github.com/sifive/freedom-u-sdk.git
+Ubuntu packages needed:
+
+    $ sudo apt-get install autoconf automake libmpc-dev libmpfr-dev libgmp-dev gawk bison flex texinfo libtool libusb-1.0-0-dev make g++ pkg-config libexpat1-dev zlib1g-dev  
+
+extra packages you might need:
+
+    sudo apt-get install libssl-dev
+
 To prepare a complete SD card image :
 
     cd freedom-u-sdk; make
