@@ -29,6 +29,8 @@ here's the variable we might need to modify:
 	vivado -nojournal -mode batch -source $(fpga_common_script_dir)/write_cfgmem.tcl -tclargs $(BOARD) $@ $<
           
 ### 4. To program the flash with Vivado :
+The following procedure is only for board vc707. For the general specific procedure, please refer to: https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_2/ug908-vivado-programming-debugging.pdf#nameddest=xGenerateBitstreamsForUseWithConfigurationMemoryDevices
+in chapter 6.
 ####  1) Launch Vivado
 ####  2) Open Hardware Manager, open target board
 ####  3) Right click on the FPGA device and select “Add Configuration Memory Device”
@@ -40,8 +42,7 @@ here's the variable we might need to modify:
 	Type			g18
 	Density			1024
 	Width			x16
-This parameter is only for board vc707. For the specific procedure, please refer to: https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_2/ug908-vivado-programming-debugging.pdf#nameddest=xGenerateBitstreamsForUseWithConfigurationMemoryDevices
-in chapter 6.
+This parameter is only for board vc707.
 
 ####  5) Click OK to “Do you want to program the configuration memory device now ?”
 ####  6) Add freedom-u500-vc707-0-1.mcs and freedom-u500-vc707-0-1.prm
